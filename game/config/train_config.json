@@ -1,0 +1,38 @@
+{
+  "ENV_SETTINGS": {
+	"automate_players": true,
+	"server": "local",
+	"train_mode": true
+  },
+  "GAME_SETTINGS": {
+	"level": 1,
+	"limit_levels": [1, 2, 3],
+	"level_sampling": true,
+	"num_repeats": 1000,
+	"render": false,
+	"render_verbose": false,
+	"restart_on_finish": false,
+	"round_cap": 350,
+	"track_metrics": true
+  },
+  "GLOBAL_SETTINGS": {
+	"TENSORBOARD_LOG_DIR": "monitoring/dice_adventure_tensorboard/"
+  },
+    "TRAINING_SETTINGS": {
+	"GLOBAL": {
+	  "model_type": "ppo",
+	  "num_envs": 2,
+	  "num_time_steps": 100000000000,
+	  "device": "cuda",
+	  "players": ["Human"],
+	  "model_file": null,
+	  "model_number": 7,
+	  "save_threshold": 1000
+	},
+	"PPO": {
+	  "n_steps": 2048,
+	  "batch_size": 64
+	},
+	"HTN": {}
+  }
+}

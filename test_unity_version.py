@@ -27,7 +27,7 @@ def play(p):
                            5: 'submit', 6: 'pinga', 7: 'pingb', 8: 'pingc', 9: 'pingd', 10: 'undo'}
     action_map_rev = {v: k for k, v in action_map.items()}
 
-    model_filename = "train/7/model/dice_adventure_ppo_modelchkpt-279.zip"
+    model_filename = "train/7/model/dice_adventure_ppo_modelchkpt-16445.zip"
     model = PPO.load(model_filename)
 
     env = get_env(p, model_filename)

@@ -1,6 +1,7 @@
 from game.dice_adventure import DiceAdventure
 import game.env.unity_socket as unity_socket
 from gymnasium import Env
+import json
 from json import loads
 import examples.AdiAgent.rewards as rewards
 from random import choice

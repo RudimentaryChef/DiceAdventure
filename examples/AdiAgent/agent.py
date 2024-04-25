@@ -1,4 +1,9 @@
 from random import choice
+from stable_baselines3 import PPO
+from examples.AdiAgent.dice_adventure_python_env import DiceAdventurePythonEnv
+from time import sleep
+from random import seed
+from threading import Thread
 
 
 class DiceAdventureAgent:
@@ -11,6 +16,14 @@ class DiceAdventureAgent:
     """
     def __init__(self):
         pass
+    def main(self):
+        players = [p for p in PLAYERS if p != PLAYER]
+        processes = [
+            Thread(target=play, args=(p,))
+            for p in players
+        ]
+        for p in processes:
+            p.start()
 
     def take_action(self, state, actions):
         """
@@ -21,3 +34,6 @@ class DiceAdventureAgent:
         :return:        (string) An action from the 'actions' list
         """
         return choice(actions)
+
+    if __name__ == "__main__":
+        main()

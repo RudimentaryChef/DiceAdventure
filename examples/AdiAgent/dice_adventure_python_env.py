@@ -84,6 +84,8 @@ class DiceAdventurePythonEnv(Env):
         self.mask_size = self.mask_radii[self.player] * 2 + 1
         vector_len = (self.mask_size * self.mask_size * len(
             set(self.observation_object_positions.values())) * 4) + 6
+        print("vector_len")
+        print(vector_len)
         self.observation_space = spaces.Box(low=-5, high=100,
                                             shape=(vector_len,), dtype=np.float32)
 
@@ -405,6 +407,13 @@ class DiceAdventurePythonEnv(Env):
         # Locate player and their shrine in scene
         player_obj = None
         shrine_obj = None
+        #print("hello")
+        #print("state")
+        #print(state)
+        #print("state: content")
+        #print(state["content"])
+        #print("state: content: scene")
+        #print(state["content"]["scene"])
         for obj in state["content"]["scene"]:
             if player_obj and shrine_obj:
                 break

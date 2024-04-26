@@ -1,6 +1,5 @@
 from examples.AdiAgent.dice_adventure_python_env import DiceAdventurePythonEnv
 from examples.AdiAgent.agent import DiceAdventureAgent
-
 PLAYERS = ["Dwarf", "Giant", "Human"]
 SERVER = "local"
 ACTION_LIST = ["up", "down", "left", "right", "wait", "undo", "submit", "pinga", "pingb", "pingc", "pingd"]
@@ -14,13 +13,21 @@ def main():
     env = DiceAdventurePythonEnv(server=SERVER)
     state = env.reset()[0]
 
+    #state = env.get_state()
+    #print(state)
+    #print("good")
+    #print("observe dwarf")
+    #print(env.get_observation(state, "Dwarf"))
+    #print("observe Human")
+    #print(env.get_observation(state, "Human"))
+    #print("observe Giant")
+    #print(env.get_observation(state, "Giant"))
     while True:
         for p in PLAYERS:
-            action = agent.take_action(state=state, actions=ACTION_LIST)
+            print(env.get_observation(env.get_state()))
+            action = agent.take_action(state= env.get_observation(env.get_state()), actions=ACTION_LIST)
             state = env.execute_action(player=p, game_action=action)
-            print(p)
             print(action)
-
         env.render()
 
 

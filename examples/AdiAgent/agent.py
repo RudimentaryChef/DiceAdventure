@@ -1,10 +1,5 @@
 from random import choice
 from stable_baselines3 import PPO
-from examples.AdiAgent.dice_adventure_python_env import DiceAdventurePythonEnv
-from time import sleep
-from random import seed
-from threading import Thread
-
 
 class DiceAdventureAgent:
     """
@@ -14,16 +9,8 @@ class DiceAdventureAgent:
     - take_action():  Determines which action to take given a state (dict) and list of actions. Note that your
                       agent does not need to use the list of actions, it is just provided for convenience.
     """
-    def __init__(self):
-        pass
-    def main(self):
-        players = [p for p in PLAYERS if p != PLAYER]
-        processes = [
-            Thread(target=play, args=(p,))
-            for p in players
-        ]
-        for p in processes:
-            p.start()
+    def __init__(self, model_filename):
+        self.model = PPO.load(model_filename)
 
     def take_action(self, state, actions):
         """
@@ -33,7 +20,6 @@ class DiceAdventureAgent:
         :param actions: (list) A list of string action names
         :return:        (string) An action from the 'actions' list
         """
-        return choice(actions)
-
-    if __name__ == "__main__":
-        main()
+        action_probs, _ = self.model.predict(state, deterministic=True)
+        action_idx = action_probs.argmax()
+        return actions[action_idx]

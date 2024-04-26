@@ -7,8 +7,9 @@ ACTION_LIST = ["up", "down", "left", "right", "wait", "undo", "submit", "pinga",
 
 
 def main():
+    model_file = "train/7/model/dice_adventure_ppo_modelchkpt-16445.zip"
     # Load agent
-    agent = DiceAdventureAgent()
+    agent = DiceAdventureAgent(model_file)
     # Set up environment
     env = DiceAdventurePythonEnv(server=SERVER)
     state = env.reset()[0]

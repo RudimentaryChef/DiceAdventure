@@ -46,6 +46,7 @@ class DiceAdventurePythonEnv(Env):
         self.mask_radii = {"Dwarf": self.config["OBJECT_INFO"]["OBJECT_CODES"]["1S"]["SIGHT_RANGE"],
                            "Giant": self.config["OBJECT_INFO"]["OBJECT_CODES"]["2S"]["SIGHT_RANGE"],
                            "Human": self.config["OBJECT_INFO"]["OBJECT_CODES"]["3S"]["SIGHT_RANGE"]}
+        self.max_mask_radius = max(self.mask_radii.values())
         self.action_map = {0: 'left', 1: 'right', 2: 'up', 3: 'down', 4: 'wait',
                            5: 'submit', 6: 'pinga', 7: 'pingb', 8: 'pingc', 9: 'pingd', 10: 'undo'}
         self.observation_object_positions = self.config["GYM_ENVIRONMENT"]["OBSERVATION"]["OBJECT_POSITIONS"]
@@ -81,7 +82,7 @@ class DiceAdventurePythonEnv(Env):
         self.action_space = spaces.Discrete(num_actions)
         # The observation will be the coordinate of the agent
         # this can be described both by Discrete and Box space
-        self.mask_size = self.mask_radii[self.player] * 2 + 1
+        self.mask_size = self.max_mask_radius * 2 + 1
         vector_len = (self.mask_size * self.mask_size * len(
             set(self.observation_object_positions.values())) * 4) + 6
         print("vector_len")

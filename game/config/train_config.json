@@ -21,7 +21,7 @@
     "TRAINING_SETTINGS": {
 	"GLOBAL": {
 	  "model_type": "ppo",
-	  "num_envs": 2,
+	  "num_envs": 7,
 	  "num_time_steps": 100000000000,
 	  "device": "cuda",
 	  "players": ["Human"],

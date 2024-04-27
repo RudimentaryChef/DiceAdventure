@@ -85,8 +85,6 @@ class DiceAdventurePythonEnv(Env):
         self.mask_size = self.max_mask_radius * 2 + 1
         vector_len = (self.mask_size * self.mask_size * len(
             set(self.observation_object_positions.values())) * 4) + 6
-        print("vector_len")
-        print(vector_len)
         self.observation_space = spaces.Box(low=-5, high=100,
                                             shape=(vector_len,), dtype=np.float32)
 

@@ -26,8 +26,8 @@
 	  "device": "cuda",
 	  "players": ["Human"],
 	  "model_file": null,
-	  "model_number": 7,
-	  "save_threshold": 1000
+	  "model_number": 10,
+	  "save_threshold": 10000
 	},
 	"PPO": {
 	  "n_steps": 2048,

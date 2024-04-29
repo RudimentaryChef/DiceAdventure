@@ -23,11 +23,11 @@
 	  "model_type": "ppo",
 	  "num_envs": 7,
 	  "num_time_steps": 100000000000,
-	  "device": "cuda",
-	  "players": ["Human"],
+	  "device": "cpu",
+	  "players": ["Human", "Dwarf", "Giant"],
 	  "model_file": null,
-	  "model_number": 10,
-	  "save_threshold": 10000
+	  "model_number": 100,
+	  "save_threshold": 50000
 	},
 	"PPO": {
 	  "n_steps": 2048,

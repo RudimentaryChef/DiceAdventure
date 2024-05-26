@@ -1,5 +1,5 @@
 # HMT-GAME-1-AGENTS
-This repository implements a low fidelity version of HMT Game 1 (Dice Adventure), a custom OpenAI Gym environment for Dice Adventure, and training code for agents to connect and learn to play the game
+This repository implements a low fidelity version of HMT Game 1 (Dice Adventure), a custom OpenAI Gym environment for Dice Adventure, and training code for agents to connect and learn to play the game. This uses Stable Baselines. This project is currently a work in progress. I worked on creating agents for this project with different playstyles.
 
 ## Install required packages
 ```sh

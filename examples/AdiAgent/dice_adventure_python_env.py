@@ -76,7 +76,7 @@ class DiceAdventurePythonEnv(Env):
         # AGENT SETTINGS #
         ##################
 
-        self.model_type = "aggressive"
+        self.model_type = "default"
 
         num_actions = len(self.action_map)
         self.action_space = spaces.Discrete(num_actions)

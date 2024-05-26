@@ -6,7 +6,7 @@ ACTION_LIST = ["up", "down", "left", "right", "wait", "undo", "submit", "pinga",
 
 
 def main():
-    model_file = "train/7/model/dice_adventure_ppo_modelchkpt-16445.zip"
+    model_file = "train/20/model/dice_adventure_ppo_modelchkpt-1.zip"
     # Load agent
     agent = DiceAdventureAgent(model_file)
     # Set up environment
@@ -24,10 +24,11 @@ def main():
     #print(env.get_observation(state, "Giant"))
     while True:
         for p in PLAYERS:
-            print(env.get_observation(env.get_state()))
+            #print(env.get_observation(env.get_state()))
             action = agent.take_action(state= env.get_observation(env.get_state()), actions=ACTION_LIST)
             state = env.execute_action(player=p, game_action=action)
             print(action)
+
         env.render()
 
 

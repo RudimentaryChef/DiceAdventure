@@ -20,6 +20,14 @@ class DiceAdventureAgent:
         :param actions: (list) A list of string action names
         :return:        (string) An action from the 'actions' list
         """
+        print("take actions")
+        print("state:")
+        print(state)
         action_probs, _ = self.model.predict(state, deterministic=True)
+        print("action_probs:")
+        print(action_probs)
+        print("_states: " )
+        print(_)
         action_idx = action_probs.argmax()
+        print(action_idx)
         return actions[action_idx]

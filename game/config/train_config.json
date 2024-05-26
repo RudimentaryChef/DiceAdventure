@@ -21,12 +21,12 @@
     "TRAINING_SETTINGS": {
 	"GLOBAL": {
 	  "model_type": "ppo",
-	  "num_envs": 7,
+	  "num_envs": 3,
 	  "num_time_steps": 100000000000,
-	  "device": "cpu",
+	  "device": "cuda",
 	  "players": ["Human", "Dwarf", "Giant"],
 	  "model_file": null,
-	  "model_number": 100,
+	  "model_number": 20,
 	  "save_threshold": 50000
 	},
 	"PPO": {
